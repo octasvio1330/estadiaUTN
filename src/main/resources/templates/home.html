@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>EmpleosApp | Aplicación para publicar Ofertas de Trabajo.</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+    <link th:href="@{bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header th:insert="fragmentos/menu.html::menu-principal">
+      
+    </header>
+
+    <main role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      
+        <div class="container-fluid" >
+          <div class="jumbotron  bg-gradient-dark">
+          <h4>Encuentra el trabajo que andas buscando.</h4>
+          Puedes buscar por descripción y categoría.
+          <form class="form-inline">
+            <input type="text" class="form-control mb-3" id="exampleFormControlInput1" placeholder="Escriba una búsqueda">&nbsp;
+            <select class="custom-select custom-select mb-3">
+              <option selected>Seleccione una categoría</option>
+              <option value="1">Ventas</option>
+              <option value="2">Contabilidad</option>
+              <option value="3">Transporte</option>
+              <option value="4">Informática</option>
+              <option value="5">Construcción</option>
+            </select>&nbsp;
+            <button type="submit" class="btn bg-secondary text-white mb-3">Buscar</button>
+          </form>
+        </div>
+      </div>
+      <div class="container"> 
+        <h4 class="font-weight-bold text-center text-capitalize text-dark">Vacantes Destacadas</h4>
+        <div class="row" th:each="vacante:${vacantes}">
+          <div class="col-md-3">            
+            <img class="rounded mx-auto d-block" th:src="@{/logos/{img}(img=${vacante.imagen})}" alt="Generic placeholder image" width="220" height="220">            
+          </div>
+          <div class="col-md-9">
+            <h2 th:text="${vacante.nombre}"></h2>
+            <h6 class="card-title"><strong>Categoría: </strong> <span th:text="${vacante.categoria.nombre}"></span></h6>
+            <h6 class="card-title"><strong>Publicado: </strong> <span th:text="${vacante.fecha}"></span></h6>                
+            <p th:text="${vacante.descripcion}"></p>
+            <p><a class="btn btn-secondary" th:href="@{/vacantes/detalle(id=${vacante.id})}" role="button">Ver detalles &raquo;</a></p>            
+          </div>
+        </div>  
+		  <hr>	
+      </div> <!-- /container -->
+
+    </main>
+
+    <footer class="footer" th:insert="fragmentos/pie.html::pie">
+      
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+  </body>
+</html>
