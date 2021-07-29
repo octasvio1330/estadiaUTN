@@ -53,7 +53,7 @@
               <tbody>
                 <tr th:each="vacante:${vacantes}">
                 <td th:text="${vacante.id}"></td> 
-                  <td><img th:src="@{/logos/{img}(img=${vacante.imagen})}" width="35" height="35"></td>
+                  <td><img th:src="@{/images/{img}(img=${vacante.imagen})}" width="35" height="35"></td>
                   <td th:text="${vacante.categoria.nombre}"></td>
                   <td th:text="${vacante.nombre}"></td>                  
                   <td th:text="${vacante.fecha}"></td>
