@@ -52,7 +52,7 @@
         <h4 class="font-weight-bold text-center text-capitalize text-dark">Lo mas Destacado</h4>
         <div class="row  border border-dark rounded" th:each="vacante:${vacantes}">
           <div class="col-md-3 ">            
-            <img class="rounded mx-auto d-block" th:src="@{/logos/{img}(img=${vacante.imagen})}" alt="Generic placeholder image" width="220" height="220">            
+            <img class="rounded mx-auto d-block" th:src="@{/images/{img}(img=${vacante.imagen})}" alt="Generic placeholder image" width="220" height="220">            
           </div>
           <div class="col-md-9">
             <h2 th:text="${vacante.nombre}"></h2>
