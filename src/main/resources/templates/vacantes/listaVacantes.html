@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-     <title>EmpleosApp | Aplicación para publicar Ofertas de Trabajo.</title>
+     <title>Estación Vela</title>
     <!-- Bootstrap core CSS -->
     <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -26,7 +26,7 @@
       <div class="container-fluid"> 
 
         <div class="card">
-          <h4 class="card-header"><strong>Listado de Ofertas de Trabajo</strong></h4>              
+          <h4 class="card-header"><strong>Listado de velas</strong></h4>              
           <div class="card-body">
             <a class="btn btn-secondary text-white" th:href="@{/vacantes/crear}" title="Crear nueva Oferta de Trabajo" role="button"><i class="fas fa-file" aria-hidden="true"></i> Nueva</a>            
             <hr>
@@ -44,6 +44,7 @@
                   <th scope="col">Categoría</th>
                   <th scope="col">Nombre</th>                  
                   <th scope="col">Fecha Pub.</th>
+                  <th scope="col">Precio</th>
                   <th scope="col">Estatus</th>
                   <th scope="col">Destacada</th>
                   <th scope="col">Operaciones</th>
@@ -56,6 +57,7 @@
                   <td th:text="${vacante.categoria.nombre}"></td>
                   <td th:text="${vacante.nombre}"></td>                  
                   <td th:text="${vacante.fecha}"></td>
+                  <td th:text="${vacante.salario}"></td>
                   <td th:text="${vacante.estatus}"></td>
                	<!--   <td th:text=${vacante.destacado}></td>
                   <td th:text="${vacante.destacado == 1? 'Si': 'No'}"></td>-->

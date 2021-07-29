@@ -54,7 +54,7 @@ public class VacantesController {
 	public String eliminar(@RequestParam("id")int idVacante,
 			RedirectAttributes atributo) {
 		vacantesService.eliminar(idVacante);
-		atributo.addFlashAttribute("msg", "Vacante Eliminada");
+		atributo.addFlashAttribute("msg", "Vela eliminada con exito");
 		return "redirect:/vacantes/indexPaginado";
 	}
 	
@@ -96,7 +96,7 @@ public class VacantesController {
 		vacante.setCategoria(categoriasService.buscarPorId(vacante.getCategoria().getId()));
 		//Guardar
 		vacantesService.guardar(vacante);
-		atributo.addFlashAttribute("msg", "Vacante guardada con exito");
+		atributo.addFlashAttribute("msg", "Vela guardada con exito");
 		//mostrar con redireccionamiento
 		return "redirect:/vacantes/indexPaginado";
 	}

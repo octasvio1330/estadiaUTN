@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>EmpleosApp | Creación de Ofertas de Trabajo</title>
+    <title>Estación Vela</title>
     <!-- Bootstrap core CSS -->
     <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -26,7 +26,7 @@
       <div class="container"> 
 
         <div class="card">
-          <h4 class="card-header"><strong>Datos de la oferta de trabajo</strong></h4>              
+          <h4 class="card-header"><strong>Datos de la vela</strong></h4>              
           <div class="card-body">
             <form method="post" th:action="@{/vacantes/guardar}" th:object="${vacante}"  enctype="multipart/form-data">  
             <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger" role="alert">
@@ -41,21 +41,21 @@
                   <div class="form-group">
                   <input type="hidden" th:field="*{id}">
                     <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" th:field="*{nombre}" name="nombre" placeholder="Titulo de la oferta de trabajo" >
+                    <input type="text" class="form-control" id="nombre" th:field="*{nombre}" name="nombre" placeholder="Nombre de la vela " >
                     <small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
                   </div>
                 </div>
                 <div class="col-md-9"> 
                   <div class="form-group">
                     <label for="descripcion">Descripción</label>
-                    <input type="text" class="form-control" id="descripcion" th:field="*{descripcion}" name="descripcion" placeholder="Breve descripcion de la oferta de trabajo" required="required">
+                    <input type="text" class="form-control" id="descripcion" th:field="*{descripcion}" name="descripcion" placeholder="Breve descripcion de la vela" required="required">
                   </div> 
                 </div>    
               </div>    
               <div class="row">
                 <div class="col-md-3"> 
                   <div class="form-group">
-                    <label for="categoria">Categoría</label>
+                    <label for="categoria">Tipo de vela</label>
                     <select class="form-control" th:field="*{categoria.id}" name="categoria" id="categoria">
                       <option th:each="categoria:${categorias}"
                        th:value="${categoria.id}"
@@ -99,14 +99,14 @@
               <div class="row">
                 <div class="col-md-3"> 
                   <div class="form-group">
-                    <label for="salario">Salario Ofrecido (Aprox)</label>
-                    <input type="text" class="form-control" name="salario" th:field="*{salario}" id="salario" placeholder="Salario aproximado." required="required">
+                    <label for="salario">Precio</label>
+                    <input type="text" class="form-control" name="salario" th:field="*{salario}" id="salario" placeholder="Precio total" required="required">
                     <small class="form-text text-danger" th:if="${#fields.hasErrors('salario')}" th:errors="*{salario}"></small>
                   </div>
                 </div>
                 <div class="col-md-3"> 
                   <div class="form-group">
-                    <label for="archivoImagen">Imagen</label>
+                    <label for="archivoImagen">Imagen del producto</label>
                     <input type="file" class="form-control-file" name="archivoImagen" id="archivoImagen">
                   </div>
                 </div>
@@ -120,7 +120,7 @@
                   </div> 
                 </div> 
                 <div class="col-md-3">
-                  <label for="imagen">Imagen/Logo</label>
+                  <label for="imagen">Imagen</label>
                   <img class="rounded mx-auto d-block" th:src="@{/logos/{img}(img=${vacante.imagen})}" alt="Generic placeholder image" width="200" height="200">            
                 </div>
               </div> 

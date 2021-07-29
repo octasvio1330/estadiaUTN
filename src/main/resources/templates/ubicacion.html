@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Estación Vela | Dando siempre lo mejor</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+    <link th:href="@{bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header th:insert="fragmentos/menu.html::menu-principal">
+      
+      
+      
+      <video class="video-fluid z-depth-1" autoplay loop controls muted>
+  <source src="https://mdbootstrap.com/img/video/Sail-Away.mp4" type="video/mp4" />
+</video>
+    </header><br><br>
+    <div class="container-fluid text-center">
+    <iframe class="map-responsive" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d481324.74684965244!2d-99.26980689306383!3d19.52659952924741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fef297ba3e85%3A0xb4f16fc34a6bae10!2sVelas%20y%20Arte%20en%20Cera%20Mexicana%20S.A.%20de%20C.V.!5e0!3m2!1ses-419!2smx!4v1624827148322!5m2!1ses-419!2smx"
+     width="1000" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
+     
+     
+     <div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card " style="width: 18rem;">
+  <img th:src="@{/images/wa.png}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title text-center">WhatsApp</h5>
+    <p class="card-text">Puedes contactarnos por WhatsApp al numero 5610012212 disponible de 8 am a 6 pm</p>
+  </div>
+</div>
+    </div>
+    <div class="col">
+      <div class="card " style="width: 18rem;">
+  <img th:src="@{/images/correo.png}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title text-center">Correo electronico</h5>
+    <p class="card-text">Puedes contactarnos por nuestro correo electronico estacionVela@gmail.com</p>
+  </div>
+</div>
+    </div>
+    <div class="col">
+      <div class="card " style="width: 18rem;">
+  <img th:src="@{/images/logo-vela.png}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title text-center">Visitanos</h5>
+    <p class="card-text">Visitanos en 08210, Xicaltongo 30, San Francisco Xilcantongo, Iztacalco, 08230 CDMX
+    
+    </p>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+     
+
+    <footer class="footer" th:insert="fragmentos/pie.html::pie">
+      
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+  </body>
+</html>

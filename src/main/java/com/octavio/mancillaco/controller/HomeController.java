@@ -3,7 +3,13 @@ package com.octavio.mancillaco.controller;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,10 +24,47 @@ import com.octavio.mancillaco.service.IntVacantesService;
 @Controller
 public class HomeController {
 	
+	
+	
 	@Autowired
 	private IntUsuariosService usuariosService;
 	@Autowired
 	private IntVacantesService vacantesService;
+	
+	@GetMapping("/logout")
+	       public String logout(HttpServletRequest request){
+	       SecurityContextLogoutHandler logoutHandler = 
+	       new SecurityContextLogoutHandler();
+	       logoutHandler.logout(request, null, null);
+	return "redirect:/";
+	}
+	
+	@GetMapping("/login")
+	public String mostrarLogin() {
+		return "formLogin";
+		
+	}
+	
+	@GetMapping("/index")
+	public String mostrarIndex(Authentication auth,HttpSession session) {
+		String username = auth.getName();
+		//Obtener el usuario actual 
+		
+		
+		System.out.println("Username : " + username);
+		for(GrantedAuthority rol:auth.getAuthorities()) {
+			System.out.println("Rol : " + rol.getAuthority());
+		}
+		
+		if(session.getAttribute("usuario") == null) {
+		Usuario usuario = usuariosService.buscarPorUsername(username);
+		session.setAttribute("usuario", usuario);
+		usuario.setPassword(null);
+		System.out.println(usuario);
+		}
+		return "redirect:/";
+		
+	}
 	
 	@PostMapping("/guardar")
 	public String guardarUsuario(Usuario usuario) {
@@ -32,7 +75,7 @@ public class HomeController {
 		usuario.setFechaRegistro(LocalDate.now());
 		//Crear el perfil o rol
 		Perfil perfil = new Perfil();
-		perfil.setId(3); //Rol-Usuario
+		perfil.setId(2); //Rol-Usuario
 		usuario.agregar(perfil);
 		System.out.println(usuario);
 		//Guardar usuario en tabla correspondiente 

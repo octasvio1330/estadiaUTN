@@ -34,7 +34,7 @@ public class CategoriasController {
 	@GetMapping("/eliminar/{id}")
 	public String eliminar(@PathVariable("id") int idCategoria, RedirectAttributes attribute) {
 		//System.out.println("idCategoria = " + idCategoria);
-		attribute.addFlashAttribute("msg1", "¡Categoria eliminada con exito!");
+		attribute.addFlashAttribute("msg1", "¡Tipo de vela eliminada con exito!");
 		categoriasService.eliminar(idCategoria);
 		return "redirect:/categorias/indexPaginado";		
 	}
@@ -47,7 +47,7 @@ public class CategoriasController {
 		System.out.println(categoria);
 		categoriasService.guardar(categoria);
 		
-		attribute.addFlashAttribute("msg", "¡Categoria guardada con exito!");
+		attribute.addFlashAttribute("msg", "¡Tipo de vela guardada con exito!");
 		return "redirect:/categorias/indexPaginado";
 		
 		

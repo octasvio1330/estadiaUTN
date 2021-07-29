@@ -16,4 +16,6 @@ public interface IntUsuariosService {
 	
 	public Page <Usuario>buscarTodas(Pageable page);
 	public Integer numeroEntidades();
+	
+	public Usuario buscarPorUsername(String username);
 }
