@@ -80,8 +80,14 @@
                 </div>
                 <div class="col-md-3"> 
                   <div class="form-group">
-                    <label for="fecha">Fecha de Publicación</label>
-                    <input type="text" class="form-control" name="fecha" th:field="*{fecha}" id="fecha" placeholder="Fecha de publicacion" required="required">
+                    <label for="fecha">Fecha de entrada</label>
+                    <input type="text" class="form-control" name="fecha" th:field="*{fecha}" id="fecha" placeholder="Fecha de entrada" required="required">
+                  </div>  
+                </div>
+                 <div class="col-md-3"> 
+                  <div class="form-group">
+                    <label for="fecha">Fecha de salida</label>
+                    <input type="text" class="form-control" name="fechas" th:field="*{fechas}" id="fechas" placeholder="Fecha de salida" required="required">
                   </div>  
                 </div>
                 <div class="col-md-3"> 
@@ -104,6 +110,7 @@
                     <small class="form-text text-danger" th:if="${#fields.hasErrors('salario')}" th:errors="*{salario}"></small>
                   </div>
                 </div>
+                
                 <div class="col-md-3"> 
                   <div class="form-group">
                     <label for="archivoImagen">Imagen del producto</label>
@@ -111,6 +118,12 @@
                   </div>
                 </div>
               </div> 
+              <div class="col-md-9"> 
+                  <div class="form-group">
+                    <label for="descripcion">Cantidad</label>
+                    <input type="number" class="col-form-label" id="cantidad" th:field="*{cantidad}" name="cantidad"  min="1" max="10000" required="required">
+                  </div> 
+                </div> 
               <hr>
               <div class="row">
                 <div class="col-md-9"> 
@@ -148,6 +161,10 @@
       
       $(function () {
           $("#fecha").datepicker({dateFormat: 'dd-mm-yy'});
+        }
+      );
+      $(function () {
+          $("#fechas").datepicker({dateFormat: 'dd-mm-yy'});
         }
       );
       
