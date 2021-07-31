@@ -33,9 +33,12 @@ public class Vacante {
 	@Digits(integer=6, fraction =2, message="Verificar la cantidad" )
 	private Double salario;
 	private LocalDate fecha =LocalDate.now();
+	private LocalDate fechas =LocalDate.now();
 	private String estatus;
 	private String imagen ="logoO.png";
 	private String detalles;
+	private Integer cantidad;
+	
 	//@Transient
 	@OneToOne
 	@JoinColumn(name="idCategoria")
@@ -108,11 +111,35 @@ public class Vacante {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-	@Override
+	
+	public Integer getCantidad() {
+		return cantidad;
+	}
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
+	}
+	
+	public LocalDate getFechas() {
+		return fechas;
+	}
+	public void setFechas(LocalDate fechas) {
+		this.fechas = fechas;
+	}
+	/*@Override
 	public String toString() {
 		return "Vacante [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", salario=" + salario
 				+ ", fecha=" + fecha + ", estatus=" + estatus + ", imagen=" + imagen + ", detalles=" + detalles
 				+ ", categoria=" + categoria + ", destacado=" + destacado + "]";
+	}*/
+	@Override
+	public String toString() {
+		return "Vacante [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", salario=" + salario
+				+ ", fecha=" + fecha + ", estatus=" + estatus + ", imagen=" + imagen + ", detalles=" + detalles
+				+ ", cantidad=" + cantidad + ", fechas=" + fechas + ", categoria=" + categoria + ", destacado="
+				+ destacado + "]";
 	}
+	
+	
+	
 	
 }
