@@ -43,11 +43,14 @@
                   <th scope="col">Logo</th>
                   <th scope="col">Categoría</th>
                   <th scope="col">Nombre</th>                  
-                  <th scope="col">Fecha Pub.</th>
+                  <th scope="col">Fecha Entrada</th>
+                  <th scope="col">Fecha Salida</th>
                   <th scope="col">Precio</th>
                   <th scope="col">Estatus</th>
                   <th scope="col">Destacada</th>
+                  <th scope="col">Cantidad</th>
                   <th scope="col">Operaciones</th>
+                  
                 </tr>
               </thead>
               <tbody>
@@ -57,6 +60,7 @@
                   <td th:text="${vacante.categoria.nombre}"></td>
                   <td th:text="${vacante.nombre}"></td>                  
                   <td th:text="${vacante.fecha}"></td>
+                  <td th:text="${vacante.fechas}"></td>
                   <td th:text="${vacante.salario}"></td>
                   <td th:text="${vacante.estatus}"></td>
                	<!--   <td th:text=${vacante.destacado}></td>
@@ -65,6 +69,7 @@
                   <span th:if="${vacante.destacado==1}"class="badge bg-primary">Si</span>
 					<span th:unless="${vacante.destacado==1}"class="badge bg-secondary">No</span>
                   </td>
+                  <td th:text="${vacante.cantidad}"></td>
                   <td>
                   
                      <a th:href="@{/vacantes/buscar(id=${vacante.id})}" onclick="return confirm('¿Estas seguro?')" class="btn btn-secondary btn-sm" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
