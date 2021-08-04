@@ -25,7 +25,7 @@ public class Vacante {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
     @NotEmpty(message="Proporcione la vacante")
-	@Pattern(regexp = "[\"^[a-zA-Z ]+$\"]+",  message="Proporcione la vacante")
+	@Pattern(regexp = "[\"^[a-zA-Z0-9 ]+$\"]+",  message="Proporcione la vacante")
 	private String nombre;
 	private String descripcion;
 	@NotNull(message="Proporciona una cantidad en el campo salario")
